@@ -72,10 +72,10 @@ fio.setLast("1147608198");
 
 ## XML Schemas
 
-* [IBSchema.xsd](http://www.fio.cz/xsd/IBSchema.xsd)
-* [importIB.xsd](http://www.fio.cz/schema/importIB.xsd)
-* [responseImportIB.xsd](http://www.fio.cz/schema/responseImportIB.xsd)
-* [type.xsd](http://www.fio.cz/schema/type.xsd)
+* [IBSchema.xsd](https://www.fio.cz/xsd/IBSchema.xsd)
+* [importIB.xsd](https://www.fio.cz/schema/importIB.xsd)
+* [responseImportIB.xsd](https://www.fio.cz/schema/responseImportIB.xsd)
+* [fio_xml_type.xsd](https://www.fio.cz/schema/fio_xml_type.xsd)
 * [local copies](src/main/resources)
 
 
