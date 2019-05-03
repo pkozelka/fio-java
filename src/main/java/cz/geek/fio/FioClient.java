@@ -18,7 +18,6 @@ import static cz.geek.fio.FioExtractor.statementExtractor;
 import static org.apache.commons.lang3.Validate.notEmpty;
 import static org.apache.commons.lang3.Validate.notNull;
 import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.HttpMethod.POST;
 
 /**
  * Fio Bank Client
@@ -31,6 +30,7 @@ public class FioClient {
     private static final String STATEMENT_LAST = ROOT + "last/{token}/transactions.{format}";
     private static final String LAST_DATE = ROOT + "set-last-date/{token}/{date}/";
     private static final String LAST_ID = ROOT + "set-last-id/{token}/{id}/";
+    private static final String GET_LAST_STATEMENT_ID = ROOT + "lastStatement/{token}/statement";
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd");
 
@@ -206,4 +206,10 @@ public class FioClient {
                 protocol, hostport, token, DATE_FORMATTER.print(date));
     }
 
+    public int[] getLastStatementId() {
+        final String entity = restTemplate.getForObject(GET_LAST_STATEMENT_ID, String.class, protocol, hostport, token);
+        notNull(entity);
+        final String[] r = entity.split(",");
+        return new int[]{Integer.parseInt(r[0]),Integer.parseInt(r[1])};
+    }
 }
